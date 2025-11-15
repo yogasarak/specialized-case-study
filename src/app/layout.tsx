@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png",
+        url: "/opengraph-image",
       },
     ],
   },
@@ -33,12 +33,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: [
-      "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png",
-    ],
+    images: ["/opengraph-image"],
   },
   icons: {
-    icon: "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png",
+    icon:
+      "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png",
     shortcut:
       "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png",
     apple:
