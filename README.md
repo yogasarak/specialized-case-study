@@ -1,6 +1,28 @@
 ## Overview
 
-This project is a single-scroll case study experience powered by Next.js 16 using the App Router, styled-components, and a data-driven content layer. The root page (`/`) and any additional case studies reuse the same layout and components – content is injected from a central data registry.
+This project is a single-scroll case-study experience engineered as a reusable UX portfolio surface. It highlights bespoke wayfinding features designed to improve rider discovery on specialized.com and documents the impact of those initiatives.
+
+### About This Work
+
+These case studies summarize a subset of the features delivered while serving as Senior Frontend Engineer & UX Feature Lead at Specialized Bicycle Components:
+
+- Led the end-to-end delivery of high-impact wayfinding features—from co-creating UX strategy with senior designers to independently engineering bespoke interactions such as the PLP carousel (pure custom implementation, no third-party libraries).
+- Architected the Next.js stack to support reusable data-driven case studies, dynamic content ingestion, and performance-focused deployments (ISR, elevated caching).
+- Drove A/B experimentation, iterative refinement, and multi-market rollouts, ensuring each feature accelerated rider discovery and checkout while maintaining a cohesive design-system handshake.
+
+The showcased carousel and session-persistence modules represent a broader program of 50+ PLP enhancements that consistently lifted conversion, session continuity, and revenue.
+
+## Technical Synopsis
+
+The site is built on Next.js 16 with the App Router and a fully dynamic data layer. Each entry (including the landing page) is generated from typed content modules, so logic stays decoupled from presentation. Key capabilities include:
+
+- Centralized case-study registry powering both `/` and `/case-studies/[slug]`
+- Shared client component with SOC style modules for behavior/presentation split
+- Dynamic OG image generation sourcing the same remote assets as the content layer
+- Data-driven navigation arrows; no hardcoded UI flow
+- Helper routing that keeps the default case study at `/` while slugged pages live under `/case-studies/<slug>`
+
+The result is an advanced single-page experience that still supports deep linking, responsive media parity, and fast ingestion of future studies.
 
 ## Development
 
