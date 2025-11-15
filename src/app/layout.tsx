@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/logo.png",
+        url: "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png",
       },
     ],
   },
@@ -33,12 +33,16 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/images/logo.png"],
+    images: [
+      "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png",
+    ],
   },
   icons: {
-    icon: "/images/logo.png",
-    shortcut: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png",
+    shortcut:
+      "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png",
+    apple:
+      "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png",
   },
 };
 

@@ -35,7 +35,7 @@ const CHALLENGE_POINTS = [
 ] as const;
 
 const SOLUTION_PARAGRAPH =
-  "I redesigned the product listing page with a focus on visual hierarchy, improved categorization, and responsive design. The new design features large hero images for each bike category, streamlined filtering, and a mobile-first approach.";
+  "We redesigned the product listing page with a focus on visual hierarchy, improved categorization, and responsive design. The new design features large hero images for each bike category, streamlined filtering, and a mobile-first approach.";
 
 const SOLUTION_POINTS = [
   "Introduced engaging category cards with lifestyle imagery",
@@ -111,11 +111,11 @@ const RESULTS_FEEDBACK = [
 
 const IMAGE_SOURCES: Record<ToggleOption, { src: string; alt: string }> = {
   Desktop: {
-    src: "/images/desktop.jpg",
+    src: "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/desktop.jpg",
     alt: "Desktop layout showcasing the Specialized bikes product listing page.",
   },
   Mobile: {
-    src: "/images/mobile.jpg",
+    src: "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/mobile.jpg",
     alt: "Mobile layout showcasing the Specialized bikes product listing page.",
   },
 };
@@ -224,8 +224,8 @@ export default function CaseStudyPage() {
               <InterfaceImage
                 src={activeImage.src}
                 alt={activeImage.alt}
-                width={activeView === "Desktop" ? 1200 : 375}
-                height={activeView === "Desktop" ? 760 : 1352}
+                width={activeView === "Desktop" ? 1200 : 300}
+                height={activeView === "Desktop" ? 760 : 1080}
                 priority
               />
             </ToggleImageArea>
@@ -253,34 +253,6 @@ export default function CaseStudyPage() {
               ))}
             </ProductGrid>
           </CategorySection>
-
-          <ResponsiveSection aria-labelledby="responsive-bottom-heading">
-            <SectionHeading id="responsive-bottom-heading">Responsive Design</SectionHeading>
-            <SectionParagraph>{RESPONSIVE_DESCRIPTION}</SectionParagraph>
-            <ToggleBar role="tablist" aria-label="Interface view toggle duplicate">
-              {(["Desktop", "Mobile"] as ToggleOption[]).map((option) => (
-                <ToggleTab
-                  key={`bottom-${option}`}
-                  type="button"
-                  role="tab"
-                  aria-selected={activeView === option}
-                  $active={activeView === option}
-                  onClick={() => setActiveView(option)}
-                >
-                  {option}
-                </ToggleTab>
-              ))}
-            </ToggleBar>
-            <ToggleImageArea>
-              <InterfaceImage
-                src={activeImage.src}
-                alt={activeImage.alt}
-                width={activeView === "Desktop" ? 1200 : 375}
-                height={activeView === "Desktop" ? 760 : 1352}
-                priority
-              />
-            </ToggleImageArea>
-          </ResponsiveSection>
 
           <FeatureSection aria-labelledby="features-heading">
             <SectionHeading id="features-heading">Key Design Features</SectionHeading>
@@ -380,18 +352,18 @@ const PageWrapper = styled.main`
 const CaseStudyContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 32px 160px;
+  padding: 72px 32px 140px;
   display: flex;
   flex-direction: column;
-  gap: 96px;
+  gap: 72px;
 
   @media (max-width: 899px) {
-    padding: 72px 28px 120px;
+    padding: 64px 28px 120px;
   }
 
   @media (max-width: 599px) {
-    padding: 64px 24px 120px;
-    gap: 64px;
+    padding: 56px 24px 100px;
+    gap: 52px;
   }
 `;
 
@@ -450,7 +422,7 @@ const HeroParagraph = styled.p`
 const ActionsWrapper = styled.div`
   display: flex;
   gap: 20px;
-  margin-top: 32px;
+  margin-top: 28px;
 
   @media (max-width: 599px) {
     flex-direction: column;
@@ -509,7 +481,7 @@ const StatsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 32px;
-  margin-top: 64px;
+  margin-top: 48px;
   width: 100%;
 
   @media (max-width: 899px) {
@@ -549,11 +521,11 @@ const StatLabel = styled.span`
 const DualSection = styled.section`
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 48px;
+  gap: 40px;
 
   @media (max-width: 899px) {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
 `;
 
@@ -564,7 +536,7 @@ const TextBlock = styled.article`
 `;
 
 const SectionHeading = styled.h2`
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   font-size: 22px;
   line-height: 1.4;
   font-weight: 600;
@@ -577,7 +549,7 @@ const SectionHeading = styled.h2`
 `;
 
 const SectionParagraph = styled.p`
-  margin: 0 0 20px;
+  margin: 0 0 16px;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
@@ -662,7 +634,7 @@ const ToggleTab = styled.button<{ $active: boolean }>`
 `;
 
 const ToggleImageArea = styled.div`
-  margin-top: 32px;
+  margin-top: 24px;
   border: 1px solid var(--gray-200);
   border-radius: 12px;
   padding: 12px;
@@ -685,13 +657,13 @@ const CategorySection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 20px;
 `;
 
 const CategoriesRow = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 14px;
 `;
 
 const CategoryPill = styled.span`
@@ -709,7 +681,7 @@ const CategoryPill = styled.span`
 const FilterToolbar = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 14px;
 `;
 
 const FilterAction = styled.span`
@@ -731,7 +703,7 @@ const FinancingBanner = styled.div`
 const ProductGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
+  gap: 24px;
   width: 100%;
 
   @media (max-width: 899px) {
@@ -748,7 +720,7 @@ const ProductCard = styled.div`
   background: var(--gray-50);
   border: 1px solid var(--gray-200);
   border-radius: 16px;
-  padding: 24px;
+  padding: 22px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -772,13 +744,13 @@ const FeatureSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 20px;
 `;
 
 const FeatureGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px;
+  gap: 24px;
   width: 100%;
 
   @media (max-width: 899px) {
@@ -794,7 +766,7 @@ const FeatureCard = styled.div`
   background: var(--white);
   border: 1px solid var(--gray-200);
   border-radius: 16px;
-  padding: 24px;
+  padding: 22px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -820,7 +792,7 @@ const ResultsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 18px;
 `;
 
 const ResultsParagraph = styled.p`
@@ -840,7 +812,7 @@ const ResultsParagraph = styled.p`
 const ResultsColumns = styled.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
+  gap: 20px;
   width: 100%;
 
   @media (max-width: 899px) {
@@ -853,7 +825,7 @@ const ResultsColumn = styled.div`
   background: var(--gray-50);
   border: 1px solid var(--gray-200);
   border-radius: 16px;
-  padding: 24px;
+  padding: 20px;
 `;
 
 const ModalOverlay = styled.div`
