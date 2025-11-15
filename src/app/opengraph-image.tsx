@@ -51,6 +51,7 @@ export default async function OpenGraphImage() {
         }}
       >
         <img
+          alt="Case study logo over black background"
           src={`data:image/png;base64,${base64}`}
           style={{
             width: LOGO_WIDTH,
