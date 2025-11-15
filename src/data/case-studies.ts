@@ -86,14 +86,14 @@ const landingCaseStudy: CaseStudyContent = {
   images: {
     Desktop: {
       src:
-        "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/desktop.jpg",
+        "https://iwkgbbmrbksmctgieaoz.supabase.co/storage/v1/object/public/Specialized%20Case%20Study/PLP_Carousel_Destop.png",
       alt: "Desktop view of the Specialized landing case study carousel.",
       width: 1200,
       height: 760,
     },
     Mobile: {
       src:
-        "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/mobile.jpg",
+        "https://iwkgbbmrbksmctgieaoz.supabase.co/storage/v1/object/public/Specialized%20Case%20Study/PLP_Carousel_mobile.jpg",
       alt: "Mobile view of the Specialized landing case study carousel.",
       width: 375,
       height: 1352,
@@ -189,7 +189,7 @@ const wayfindingCaseStudy: CaseStudyContent = {
       label: "Watch Demo",
       ariaLabel: "Specialized bikes demo video",
       src:
-        "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/specialized-case-study.mov",
+        "https://iwkgbbmrbksmctgieaoz.supabase.co/storage/v1/object/public/Specialized%20Case%20Study/plp-carousel.mov",
     },
   },
   stats: [
@@ -220,14 +220,14 @@ const wayfindingCaseStudy: CaseStudyContent = {
   images: {
     Desktop: {
       src:
-        "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/desktop.jpg",
+        "https://iwkgbbmrbksmctgieaoz.supabase.co/storage/v1/object/public/Specialized%20Case%20Study/PLP_Carousel_Destop.png",
       alt: "Desktop layout showcasing the Specialized bikes product listing page.",
       width: 1200,
       height: 760,
     },
     Mobile: {
       src:
-        "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/mobile.jpg",
+        "https://iwkgbbmrbksmctgieaoz.supabase.co/storage/v1/object/public/Specialized%20Case%20Study/PLP_Carousel_mobile.jpg",
       alt: "Mobile layout showcasing the Specialized bikes product listing page.",
       width: 375,
       height: 1352,
