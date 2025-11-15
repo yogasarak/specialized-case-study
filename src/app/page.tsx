@@ -329,7 +329,7 @@ export default function CaseStudyPage() {
               &times;
             </ModalClose>
             <ModalVideo controls preload="metadata" playsInline>
-              <source src="/videos/movie.mov" />
+              <source src="https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/specialized-case-study.mov" />
               Your browser does not support the video tag.
             </ModalVideo>
           </ModalContent>
