@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+const FAVICON_URL =
+  "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -36,12 +39,14 @@ export const metadata: Metadata = {
     images: ["/opengraph-image"],
   },
   icons: {
-    icon:
-      "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png",
-    shortcut:
-      "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png",
-    apple:
-      "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png",
+    icon: [
+      {
+        url: FAVICON_URL,
+        type: "image/png",
+      },
+    ],
+    shortcut: [{ url: FAVICON_URL }],
+    apple: [{ url: FAVICON_URL }],
   },
 };
 

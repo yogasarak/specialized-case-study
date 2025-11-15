@@ -51,7 +51,11 @@ const FloatingArrowBase = styled(Link)`
   }
 
   @media (max-width: 899px) {
-    display: none;
+    top: auto;
+    bottom: clamp(16px, 6vw, 32px);
+    width: 36px;
+    height: 36px;
+    transform: none;
   }
 `;
 
@@ -62,6 +66,15 @@ export const FloatingArrowRight = styled(FloatingArrowBase)`
   &:hover {
     transform: translateY(-50%) translateX(3px);
   }
+
+  @media (max-width: 899px) {
+    right: clamp(18px, 8vw, 32px);
+    transform: none;
+
+    &:hover {
+      transform: translateX(2px);
+    }
+  }
 `;
 
 export const FloatingArrowLeft = styled(FloatingArrowBase)`
@@ -70,6 +83,15 @@ export const FloatingArrowLeft = styled(FloatingArrowBase)`
 
   &:hover {
     transform: translateY(-50%) translateX(-3px);
+  }
+
+  @media (max-width: 899px) {
+    left: clamp(18px, 8vw, 32px);
+    transform: none;
+
+    &:hover {
+      transform: translateX(-2px);
+    }
   }
 `;
 
