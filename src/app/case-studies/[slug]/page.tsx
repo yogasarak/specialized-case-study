@@ -1,23 +1,23 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { CaseStudyView } from "@/components/case-study-view";
-import { CASE_STUDIES, getCaseStudyBySlug } from "@/data/case-studies";
-import type { CaseStudyPageProps, CaseStudyRouteParams } from "./types";
+import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import { CaseStudyView } from "@/components/case-study-view"
+import { CASE_STUDIES, getCaseStudyBySlug } from "@/data/case-studies"
+import type { CaseStudyPageProps, CaseStudyRouteParams } from "./types"
 
 export function generateStaticParams(): CaseStudyRouteParams[] {
-  return CASE_STUDIES.map((caseStudy) => ({ slug: caseStudy.slug }));
+  return CASE_STUDIES.map((caseStudy) => ({ slug: caseStudy.slug }))
 }
 
 export async function generateMetadata({
   params,
 }: CaseStudyPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const content = getCaseStudyBySlug(slug);
+  const { slug } = await params
+  const content = getCaseStudyBySlug(slug)
 
   if (!content) {
     return {
       title: "Case Study",
-    };
+    }
   }
 
   return {
@@ -35,18 +35,18 @@ export async function generateMetadata({
       description: content.description,
       images: ["/opengraph-image"],
     },
-  };
+  }
 }
 
 export default async function CaseStudySlugPage({
   params,
 }: CaseStudyPageProps) {
-  const { slug } = await params;
-  const content = getCaseStudyBySlug(slug);
+  const { slug } = await params
+  const content = getCaseStudyBySlug(slug)
 
   if (!content) {
-    notFound();
+    notFound()
   }
 
-  return <CaseStudyView content={content} />;
+  return <CaseStudyView content={content} />
 }
