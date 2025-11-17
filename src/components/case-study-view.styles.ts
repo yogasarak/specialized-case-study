@@ -150,6 +150,28 @@ export const HeroSection = styled.section`
   align-items: flex-start;
 `;
 
+export const HeroHeaderRow = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  @media (max-width: 599px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+`;
+
+export const AuthorLabel = styled.span`
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  color: var(--dark-gray);
+  letter-spacing: 0.02em;
+`;
+
 export const TagsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -268,6 +290,14 @@ export const StatsGrid = styled.div`
   @media (max-width: 599px) {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+`;
+
+export const StatsSection = styled.section`
+  width: 100%;
+
+  ${StatsGrid} {
+    margin-top: 0;
   }
 `;
 

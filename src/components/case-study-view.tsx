@@ -1,11 +1,8 @@
-'use client';
+"use client"
 
-import { useCallback, useEffect, useState } from "react";
-import type { CaseStudyContent, ToggleOption } from "@/data/case-studies";
-import {
-  DEFAULT_CASE_STUDY_SLUG,
-  getCaseStudyPath,
-} from "@/data/case-studies";
+import { useCallback, useEffect, useState } from "react"
+import type { CaseStudyContent, ToggleOption } from "@/data/case-studies"
+import { DEFAULT_CASE_STUDY_SLUG, getCaseStudyPath } from "@/data/case-studies"
 import {
   FloatingArrowRight,
   FloatingArrowLeft,
@@ -14,6 +11,8 @@ import {
   PageWrapper,
   CaseStudyContainer,
   HeroSection,
+  HeroHeaderRow,
+  AuthorLabel,
   TagsWrapper,
   Tag,
   HeroTitle,
@@ -25,6 +24,7 @@ import {
   StatCard,
   StatValue,
   StatLabel,
+  StatsSection,
   DualSection,
   TextBlock,
   SectionHeading,
@@ -59,11 +59,13 @@ import {
   ModalContent,
   ModalClose,
   ModalVideo,
-} from "./case-study-view.styles";
+} from "./case-study-view.styles"
 
 type CaseStudyViewProps = {
-  content: CaseStudyContent;
-};
+  content: CaseStudyContent
+}
+
+const AUTHOR_NAME = "Sara Keyser"
 
 export function CaseStudyView({ content }: CaseStudyViewProps) {
   const {
@@ -88,42 +90,113 @@ export function CaseStudyView({ content }: CaseStudyViewProps) {
     resultsMetrics,
     resultsFeedback,
     navigation,
-  } = content;
+  } = content
 
-  const watchDemo = ctas.watchDemo;
+  const watchDemo = ctas.watchDemo
+  const visualFirstLayout = content.slug === "concept-storefront"
 
-  const [activeView, setActiveView] = useState<ToggleOption>(viewOptions[0]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeView, setActiveView] = useState<ToggleOption>(viewOptions[0])
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const closeModal = useCallback(() => setIsModalOpen(false), []);
+  const closeModal = useCallback(() => setIsModalOpen(false), [])
 
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        closeModal();
+        closeModal()
       }
-    };
+    }
 
-    document.addEventListener("keydown", handleKeydown);
-    return () => document.removeEventListener("keydown", handleKeydown);
-  }, [closeModal]);
+    document.addEventListener("keydown", handleKeydown)
+    return () => document.removeEventListener("keydown", handleKeydown)
+  }, [closeModal])
 
   useEffect(() => {
-    document.body.style.overflow = isModalOpen ? "hidden" : "";
+    document.body.style.overflow = isModalOpen ? "hidden" : ""
     return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isModalOpen]);
+      document.body.style.overflow = ""
+    }
+  }, [isModalOpen])
 
-  const activeImage = images[activeView];
-  const nextHref = getCaseStudyPath(navigation.nextSlug);
-  const previousHref = getCaseStudyPath(navigation.previousSlug);
-  const showPrevious = content.slug !== DEFAULT_CASE_STUDY_SLUG;
+  const activeImage = images[activeView]
+  const nextHref = getCaseStudyPath(navigation.nextSlug)
+  const previousHref = getCaseStudyPath(navigation.previousSlug)
+  const showPrevious = content.slug !== DEFAULT_CASE_STUDY_SLUG
+
+  const renderStatsGrid = () => (
+    <StatsGrid role="list">
+      {stats.map((stat) => (
+        <StatCard key={stat.label} role="listitem">
+          <StatValue>{stat.value}</StatValue>
+          <StatLabel>{stat.label}</StatLabel>
+        </StatCard>
+      ))}
+    </StatsGrid>
+  )
+
+  const renderDualSection = () => (
+    <DualSection aria-labelledby="challenge-heading solution-heading">
+      <TextBlock>
+        <SectionHeading id="challenge-heading">The Challenge</SectionHeading>
+        <SectionParagraph>{challengeParagraph}</SectionParagraph>
+        <BulletList>
+          {challengePoints.map((item) => (
+            <BulletItem key={item}>{item}</BulletItem>
+          ))}
+        </BulletList>
+      </TextBlock>
+      <TextBlock>
+        <SectionHeading id="solution-heading">The Solution</SectionHeading>
+        <SectionParagraph>{solutionParagraph}</SectionParagraph>
+        <BulletList>
+          {solutionPoints.map((item) => (
+            <BulletItem key={item}>{item}</BulletItem>
+          ))}
+        </BulletList>
+      </TextBlock>
+    </DualSection>
+  )
+
+  const renderResponsiveSection = () => (
+    <ResponsiveSection aria-labelledby="responsive-top-heading">
+      <SectionHeading id="responsive-top-heading">
+        Responsive Design
+      </SectionHeading>
+      <SectionParagraph>{responsiveDescription}</SectionParagraph>
+      <ToggleBar role="tablist" aria-label="Interface view toggle">
+        {viewOptions.map((option) => (
+          <ToggleTab
+            key={option}
+            type="button"
+            role="tab"
+            aria-selected={activeView === option}
+            $active={activeView === option}
+            onClick={() => setActiveView(option)}
+          >
+            {option}
+          </ToggleTab>
+        ))}
+      </ToggleBar>
+      <ToggleImageArea>
+        <InterfaceImage
+          src={activeImage.src}
+          alt={activeImage.alt}
+          width={activeImage.width}
+          height={activeImage.height}
+          $view={activeView}
+          priority={activeView === "Desktop"}
+        />
+      </ToggleImageArea>
+    </ResponsiveSection>
+  )
 
   return (
     <>
       {showPrevious ? (
-        <FloatingArrowLeft href={previousHref} aria-label={navigation.previousLabel}>
+        <FloatingArrowLeft
+          href={previousHref}
+          aria-label={navigation.previousLabel}
+        >
           {/* <ArrowLabel>{navigation.previousLabel}</ArrowLabel> */}
           <ArrowGlyphLeft aria-hidden="true">
             <svg
@@ -169,13 +242,16 @@ export function CaseStudyView({ content }: CaseStudyViewProps) {
       <PageWrapper>
         <CaseStudyContainer>
           <HeroSection>
-            <TagsWrapper>
-              {tags.map((tag) => (
-                <Tag key={tag.label} $variant={tag.variant}>
-                  {tag.label}
-                </Tag>
-              ))}
-            </TagsWrapper>
+            <HeroHeaderRow>
+              <TagsWrapper>
+                {tags.map((tag) => (
+                  <Tag key={tag.label} $variant={tag.variant}>
+                    {tag.label}
+                  </Tag>
+                ))}
+              </TagsWrapper>
+              <AuthorLabel>{AUTHOR_NAME}</AuthorLabel>
+            </HeroHeaderRow>
             <HeroTitle>{heroTitle}</HeroTitle>
             <HeroParagraph>{heroIntro}</HeroParagraph>
             <ActionsWrapper>
@@ -195,65 +271,21 @@ export function CaseStudyView({ content }: CaseStudyViewProps) {
                 </SecondaryButton>
               ) : null}
             </ActionsWrapper>
-            <StatsGrid role="list">
-              {stats.map((stat) => (
-                <StatCard key={stat.label} role="listitem">
-                  <StatValue>{stat.value}</StatValue>
-                  <StatLabel>{stat.label}</StatLabel>
-                </StatCard>
-              ))}
-            </StatsGrid>
+            {visualFirstLayout ? null : renderStatsGrid()}
           </HeroSection>
 
-          <DualSection aria-labelledby="challenge-heading solution-heading">
-            <TextBlock>
-              <SectionHeading id="challenge-heading">The Challenge</SectionHeading>
-              <SectionParagraph>{challengeParagraph}</SectionParagraph>
-              <BulletList>
-                {challengePoints.map((item) => (
-                  <BulletItem key={item}>{item}</BulletItem>
-                ))}
-              </BulletList>
-            </TextBlock>
-            <TextBlock>
-              <SectionHeading id="solution-heading">The Solution</SectionHeading>
-              <SectionParagraph>{solutionParagraph}</SectionParagraph>
-              <BulletList>
-                {solutionPoints.map((item) => (
-                  <BulletItem key={item}>{item}</BulletItem>
-                ))}
-              </BulletList>
-            </TextBlock>
-          </DualSection>
-
-          <ResponsiveSection aria-labelledby="responsive-top-heading">
-            <SectionHeading id="responsive-top-heading">Responsive Design</SectionHeading>
-            <SectionParagraph>{responsiveDescription}</SectionParagraph>
-            <ToggleBar role="tablist" aria-label="Interface view toggle">
-              {viewOptions.map((option) => (
-                <ToggleTab
-                  key={option}
-                  type="button"
-                  role="tab"
-                  aria-selected={activeView === option}
-                  $active={activeView === option}
-                  onClick={() => setActiveView(option)}
-                >
-                  {option}
-                </ToggleTab>
-              ))}
-            </ToggleBar>
-            <ToggleImageArea>
-              <InterfaceImage
-                src={activeImage.src}
-                alt={activeImage.alt}
-                width={activeImage.width}
-                height={activeImage.height}
-                $view={activeView}
-                priority={activeView === "Desktop"}
-              />
-            </ToggleImageArea>
-          </ResponsiveSection>
+          {visualFirstLayout ? (
+            <>
+              {renderResponsiveSection()}
+              <StatsSection>{renderStatsGrid()}</StatsSection>
+              {renderDualSection()}
+            </>
+          ) : (
+            <>
+              {renderDualSection()}
+              {renderResponsiveSection()}
+            </>
+          )}
 
           <CategorySection aria-labelledby="category-heading">
             <SectionHeading id="category-heading">Bikes</SectionHeading>
@@ -279,7 +311,9 @@ export function CaseStudyView({ content }: CaseStudyViewProps) {
           </CategorySection>
 
           <FeatureSection aria-labelledby="features-heading">
-            <SectionHeading id="features-heading">Key Design Features</SectionHeading>
+            <SectionHeading id="features-heading">
+              Key Design Features
+            </SectionHeading>
             <FeatureGrid>
               {featureCards.map((feature) => (
                 <FeatureCard key={feature.title}>
@@ -310,6 +344,10 @@ export function CaseStudyView({ content }: CaseStudyViewProps) {
               </ResultsColumn>
             </ResultsColumns>
           </ResultsSection>
+          <HeroHeaderRow>
+            <AuthorLabel></AuthorLabel>
+            <AuthorLabel>© 2025 {AUTHOR_NAME}</AuthorLabel>
+          </HeroHeaderRow>
         </CaseStudyContainer>
       </PageWrapper>
 
@@ -332,5 +370,5 @@ export function CaseStudyView({ content }: CaseStudyViewProps) {
         </ModalOverlay>
       ) : null}
     </>
-  );
+  )
 }
