@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 const ICON_URL =
-  "https://asgngaofemmqdyjcetkm.supabase.co/storage/v1/object/public/specialized-case-study/favicon.png";
+  "https://iwkgbbmrbksmctgieaoz.supabase.co/storage/v1/object/public/Specialized%20Case%20Study/favicon.png";
 
 export const size = {
   width: 1200,
@@ -30,13 +30,22 @@ const arrayBufferToBase64 = (buffer: ArrayBuffer) => {
 };
 
 export default async function OpenGraphImage() {
-  const response = await fetch(ICON_URL);
-  if (!response.ok) {
-    throw new Error(`Failed to load favicon from ${ICON_URL}`);
-  }
+  let base64: string | null = null;
 
-  const arrayBuffer = await response.arrayBuffer();
-  const base64 = arrayBufferToBase64(arrayBuffer);
+  try {
+    const response = await fetch(ICON_URL);
+    if (!response.ok) {
+      throw new Error(`Failed to load favicon from ${ICON_URL}`);
+    }
+
+    const arrayBuffer = await response.arrayBuffer();
+    base64 = arrayBufferToBase64(arrayBuffer);
+  } catch (error) {
+    console.error(
+      `Unable to load remote favicon for OG image from ${ICON_URL}`,
+      error
+    );
+  }
 
   return new ImageResponse(
     (
@@ -50,14 +59,28 @@ export default async function OpenGraphImage() {
           justifyContent: "center",
         }}
       >
-        <img
-          alt="Case study logo over black background"
-          src={`data:image/png;base64,${base64}`}
-          style={{
-            width: LOGO_WIDTH,
-            height: "auto",
-          }}
-        />
+        {base64 ? (
+          <img
+            alt="Case study logo over black background"
+            src={`data:image/png;base64,${base64}`}
+            style={{
+              width: LOGO_WIDTH,
+              height: "auto",
+            }}
+          />
+        ) : (
+          <span
+            style={{
+              fontSize: 96,
+              fontWeight: 700,
+              color: "#fff",
+              letterSpacing: -4,
+              textTransform: "uppercase",
+            }}
+          >
+            Specialized
+          </span>
+        )}
       </div>
     ),
     {
