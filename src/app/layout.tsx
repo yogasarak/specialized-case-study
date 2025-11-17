@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const FAVICON_URL =
-  "https://iwkgbbmrbksmctgieaoz.supabase.co/storage/v1/object/public/Specialized%20Case%20Study/favicon.png";
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -18,6 +15,7 @@ const geistMono = Geist_Mono({
 const TITLE = "Specialized Bikes E-Commerce Case Study";
 const DESCRIPTION =
   "A comprehensive redesign of Specialized's product listing page highlighting responsive shopping, streamlined filtering, and higher conversion performance.";
+const ICON_PATH = "/favicon.ico";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -41,12 +39,13 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: FAVICON_URL,
+        url: ICON_PATH,
         type: "image/png",
+        sizes: "32x32",
       },
     ],
-    shortcut: [{ url: FAVICON_URL }],
-    apple: [{ url: FAVICON_URL }],
+    shortcut: [{ url: ICON_PATH }],
+    apple: [{ url: ICON_PATH }],
   },
 };
 

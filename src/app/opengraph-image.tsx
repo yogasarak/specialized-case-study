@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
-
-const ICON_URL =
-  "https://iwkgbbmrbksmctgieaoz.supabase.co/storage/v1/object/public/Specialized%20Case%20Study/favicon.png";
+import { arrayBufferToBase64 } from "../lib/base64";
+import { FAVICON_URL } from "../../favicon-url";
 
 export const size = {
   width: 1200,
@@ -12,37 +11,20 @@ export const contentType = "image/png";
 
 const LOGO_WIDTH = 280;
 
-const arrayBufferToBase64 = (buffer: ArrayBuffer) => {
-  if (typeof Buffer !== "undefined") {
-    return Buffer.from(buffer).toString("base64");
-  }
-
-  let binary = "";
-  const bytes = new Uint8Array(buffer);
-  const chunkSize = 0x8000;
-
-  for (let i = 0; i < bytes.length; i += chunkSize) {
-    const chunk = bytes.subarray(i, i + chunkSize);
-    binary += String.fromCharCode(...chunk);
-  }
-
-  return btoa(binary);
-};
-
 export default async function OpenGraphImage() {
   let base64: string | null = null;
 
   try {
-    const response = await fetch(ICON_URL);
+    const response = await fetch(FAVICON_URL);
     if (!response.ok) {
-      throw new Error(`Failed to load favicon from ${ICON_URL}`);
+      throw new Error(`Failed to load favicon from ${FAVICON_URL}`);
     }
 
     const arrayBuffer = await response.arrayBuffer();
     base64 = arrayBufferToBase64(arrayBuffer);
   } catch (error) {
     console.error(
-      `Unable to load remote favicon for OG image from ${ICON_URL}`,
+      `Unable to load remote favicon for OG image from ${FAVICON_URL}`,
       error
     );
   }
