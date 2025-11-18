@@ -1,4 +1,4 @@
-export type ToggleOption = "Desktop" | "Mobile";
+export type ToggleOption = string;
 export type TagVariant = "dark" | "light";
 
 export type CaseStudyContent = {
@@ -82,21 +82,22 @@ const landingCaseStudy: CaseStudyContent = {
   ],
   responsiveDescription:
     "The landing experience matches the detail pages for parity—responsive hero, stats grid, and mobile-friendly navigation—so partners can switch contexts without cognitive overhead.",
-  viewOptions: ["Desktop", "Mobile"],
+  viewOptions: ["Homepage", "Product Listing Page"],
   images: {
-    Desktop: {
+    Homepage: {
       src:
-        "https://iwkgbbmrbksmctgieaoz.supabase.co/storage/v1/object/public/Specialized%20Case%20Study/PLP_Carousel_Destop.png",
-      alt: "Desktop view of the Specialized landing case study carousel.",
+        "https://iwkgbbmrbksmctgieaoz.supabase.co/storage/v1/object/public/Specialized%20Case%20Study/wayfinding%20homepage.png",
+      alt: "Homepage view of the Specialized storefront case study.",
       width: 1200,
       height: 760,
     },
-    Mobile: {
+    "Product Listing Page": {
       src:
-        "https://iwkgbbmrbksmctgieaoz.supabase.co/storage/v1/object/public/Specialized%20Case%20Study/PLP_Carousel_mobile.jpg",
-      alt: "Mobile view of the Specialized landing case study carousel.",
-      width: 375,
-      height: 1352,
+        "https://iwkgbbmrbksmctgieaoz.supabase.co/storage/v1/object/public/Specialized%20Case%20Study/wayfinding-plp.png",
+      alt:
+        "Product listing page view of the Specialized storefront case study.",
+      width: 1200,
+      height: 760,
     },
   },
   categoryLabels: [

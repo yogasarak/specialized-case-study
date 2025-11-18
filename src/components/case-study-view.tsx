@@ -13,6 +13,7 @@ import {
   HeroSection,
   HeroHeaderRow,
   AuthorLabel,
+  DesktopAuthorLabel,
   TagsWrapper,
   Tag,
   HeroTitle,
@@ -94,8 +95,9 @@ export function CaseStudyView({ content }: CaseStudyViewProps) {
 
   const watchDemo = ctas.watchDemo
   const visualFirstLayout = content.slug === "concept-storefront"
+  const defaultView = viewOptions[0]
 
-  const [activeView, setActiveView] = useState<ToggleOption>(viewOptions[0])
+  const [activeView, setActiveView] = useState<ToggleOption>(defaultView)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const closeModal = useCallback(() => setIsModalOpen(false), [])
@@ -184,7 +186,7 @@ export function CaseStudyView({ content }: CaseStudyViewProps) {
           width={activeImage.width}
           height={activeImage.height}
           $view={activeView}
-          priority={activeView === "Desktop"}
+          priority={activeView === defaultView}
         />
       </ToggleImageArea>
     </ResponsiveSection>
@@ -250,7 +252,7 @@ export function CaseStudyView({ content }: CaseStudyViewProps) {
                   </Tag>
                 ))}
               </TagsWrapper>
-              <AuthorLabel>{AUTHOR_NAME}</AuthorLabel>
+              <DesktopAuthorLabel>{AUTHOR_NAME}</DesktopAuthorLabel>
             </HeroHeaderRow>
             <HeroTitle>{heroTitle}</HeroTitle>
             <HeroParagraph>{heroIntro}</HeroParagraph>
