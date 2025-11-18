@@ -172,6 +172,12 @@ export const AuthorLabel = styled.span`
   letter-spacing: 0.02em;
 `;
 
+export const DesktopAuthorLabel = styled(AuthorLabel)`
+  @media (max-width: 899px) {
+    display: none;
+  }
+`;
+
 export const TagsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
