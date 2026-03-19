@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import StyledComponentsRegistry from "@/lib/styled-components-registry";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,9 +13,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const TITLE = "Specialized Bikes E-Commerce Case Study";
+const TITLE = "Sara Keyser | Senior Software Engineer / UX Lead";
 const DESCRIPTION =
-  "A comprehensive redesign of Specialized's product listing page highlighting responsive shopping, streamlined filtering, and higher conversion performance.";
+  "Senior UX case studies spanning product strategy, design systems, responsive commerce, and frontend delivery.";
 const ICON_PATH = "/favicon.ico";
 
 export const metadata: Metadata = {
@@ -57,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       </body>
     </html>
   );
