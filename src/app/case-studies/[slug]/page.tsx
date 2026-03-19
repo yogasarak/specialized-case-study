@@ -48,5 +48,5 @@ export default async function CaseStudySlugPage({
     notFound()
   }
 
-  return <CaseStudyView content={content} />
+  return <CaseStudyView key={content.slug} content={content} />
 }

@@ -1,49 +1,79 @@
 ## Overview
 
-This project is a single-scroll case-study experience engineered as a reusable UX portfolio surface. It highlights bespoke wayfinding features designed to improve rider discovery on specialized.com and documents the impact of those initiatives.
+This project is a portfolio site for Specialized-focused UX and frontend case studies. It is built as a reusable Next.js surface for presenting product strategy, process artifacts, responsive mocks, and shipped feature walkthroughs.
 
-### About This Work
+The current case study sequence is:
 
-These case studies summarize a subset of the features delivered while serving as *Senior Frontend Engineer & UX Feature Lead* at *Specialized Bicycle Components*:
+- `complete-your-ride`
+- `continue-shopping`
+- `discovery-wayfinding`
+- `specialized-experience-highlights`
 
-- Led the end-to-end delivery of high-impact wayfinding features—from co-creating UX strategy with senior designers to independently engineering bespoke interactions such as the PLP carousel (pure custom implementation, no third-party libraries).
-- Architected the Next.js stack to support reusable data-driven case studies, dynamic content ingestion, and performance-focused deployments (ISR, elevated caching).
-- Drove A/B experimentation, iterative refinement, and multi-market rollouts, ensuring each feature accelerated rider discovery and checkout while maintaining a cohesive design-system handshake.
+The root route (`/`) is a lightweight landing page that introduces the portfolio and links into those case studies.
 
-The showcased carousel and session-persistence modules represent a broader program of 50+ PLP enhancements that consistently lifted conversion, session continuity, and revenue.
+## About The Work
 
-## Technical Synopsis
+These case studies summarize a subset of the work delivered while serving as **Senior Frontend Engineer / UX Feature Lead** at **Specialized Bicycle Components**.
 
-The site is built on Next.js 16 with the App Router and a fully dynamic data layer. Each entry (including the landing page) is generated from typed content modules, so logic stays decoupled from presentation. Key capabilities include:
+The work spans:
 
-- Centralized case-study registry powering both `/` and `/case-studies/[slug]`
-- Shared client component with SOC style modules for behavior/presentation split
-- Dynamic OG image generation sourcing the same remote assets as the content layer
-- Data-driven navigation arrows; no hardcoded UI flow
-- Helper routing that keeps the default case study at `/` while slugged pages live under `/case-studies/<slug>`
+- rider-first wayfinding and product discovery
+- persistence and session re-entry patterns
+- responsive commerce and PDP enhancement
+- design systems and component-library alignment
+- platform delivery across Next.js, GraphQL, Apollo, ISR, and caching strategies
 
-The result is an advanced single-page experience that still supports deep linking, responsive media parity, and fast ingestion of future studies.
+## Tech Stack
 
-## Case Study Architecture
+- Next.js 15 App Router
+- TypeScript
+- styled-components
+- data-driven case study content via `src/data/case-studies.ts`
 
-- `src/components/case-study-view.tsx` renders the full-page experience. It is paired with `case-study-view.styles.ts`, which contains all styled-components so visual updates stay centralized.
-- `src/data/case-studies.ts` is the single source of truth for case study metadata (copy, stats, feature lists, image/video URLs, navigation target). The schema is strongly typed via `CaseStudyContent`.
-- The home page (`src/app/page.tsx`) loads the default case study defined by `DEFAULT_CASE_STUDY_SLUG` (currently `"landing-case-study"`). Reordering the array or updating the constant swaps the landing experience without modifying the view component.
-- `navigation` on each case study entry controls both arrows. All pages—including the landing entry—participate in the circular flow by setting `nextSlug`/`previousSlug`, so additional studies can be inserted or reordered without touching the component.
-- `getCaseStudyPath` keeps the canonical URL for the default case study at the root (`/`). Everywhere else the helper returns `/case-studies/<slug>`, so the landing entry remains dynamic while the rest of the sequence exposes explicit slug URLs.
-- Additional case studies are served from the dynamic route `src/app/case-studies/[slug]/page.tsx`. The route pulls its data by slug and shares metadata (Open Graph/Twitter) with the root experience.
-- The floating right-edge arrow links to the `navigation.nextSlug` defined for each case study, making it easy to chain multiple stories without introducing global navigation.
+## Architecture
 
-## Open Graph Image
+- `src/app/page.tsx`
+  Renders the custom portfolio landing page.
 
-`src/app/opengraph-image.tsx` creates a 1200×630 PNG at request time. It fetches the remote favicon, centers it on a black background, and supplies it to both OG and Twitter metadata. The generator is shared by all case studies, ensuring consistent previews without storing extra assets in the repo.
+- `src/app/case-studies/[slug]/page.tsx`
+  Renders individual case study pages and their metadata.
 
-## Styling Conventions
+- `src/components/home-landing.tsx`
+  Landing page content and navigation into the case studies.
 
-All visual rules live in `case-study-view.styles.ts` via styled-components. Components import the exact tokens they need, keeping logic and presentation separate. 
+- `src/components/case-study-view.tsx`
+  Shared case study renderer used by all case study routes.
+
+- `src/components/case-study-view.styles.ts`
+  Shared styled-components definitions for the case study experience.
+
+- `src/data/case-studies.ts`
+  The single source of truth for case study copy, stats, assets, process artifacts, navigation, and CTA configuration.
+
+## Content Model
+
+Each case study can define:
+
+- hero copy and CTAs
+- stats
+- challenge and solution sections
+- responsive design images
+- process artifacts
+- flow carousel slides
+- interactive session demos
+- feature summaries
+- results and metrics
+- previous / next navigation
+
+This keeps content changes centralized and makes it easy to reorder or refine case studies without rebuilding page structure from scratch.
 
 ## Deployment
 
-Deploy as a standard Next.js App Router project. When using Vercel, the dynamic case study route is statically generated thanks to `generateStaticParams`, so new case studies only require a redeploy after editing `case-studies.ts`.
+Deploy as a standard Next.js App Router project. The case study routes are statically generated from the case study registry, so changes to ordering or content require a rebuild/redeploy.
 
-© 2025 Sara Keyser all rights reserved
+## Notes
+
+- Open Graph and icon assets are generated through the app routes in `src/app/opengraph-image.tsx` and `src/app/icon.tsx`.
+- The only known non-blocking build warning is the missing `metadataBase` value for social image URL resolution.
+
+© 2026 Sara Keyser

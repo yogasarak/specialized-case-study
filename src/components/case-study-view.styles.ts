@@ -23,6 +23,26 @@ const riseUp = keyframes`
   }
 `;
 
+const slideInRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+const drainBar = keyframes`
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+`;
+
 const FloatingArrowBase = styled(Link)`
   position: fixed;
   top: 50%;
@@ -590,6 +610,557 @@ export const FeatureCopy = styled.p`
   color: var(--gray-700);
 `;
 
+export const ProcessSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const ProcessIntro = styled.p`
+  margin: 0;
+  max-width: 860px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-700);
+`;
+
+export const ProcessGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+  width: 100%;
+
+  @media (max-width: 899px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const ProcessColumns = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+  width: 100%;
+
+  @media (max-width: 899px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const ProcessColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+`;
+
+export const ProcessCard = styled.article`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid var(--gray-200);
+  border-radius: 20px;
+  background: var(--white);
+  padding: 18px;
+  box-shadow: 0 12px 40px rgba(17, 17, 17, 0.06);
+`;
+
+export const ProcessImageButton = styled.button`
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: zoom-in;
+  text-align: left;
+`;
+
+export const ProcessImageFrame = styled.div`
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--gray-200);
+  background: var(--gray-50);
+
+  img {
+    display: block;
+  }
+`;
+
+export const ProcessTextBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+export const ProcessCardTitle = styled.h3`
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 600;
+  color: var(--black);
+`;
+
+export const ProcessCardCopy = styled.p`
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--gray-700);
+`;
+
+export const ProcessCardAction = styled.button`
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: none;
+  background: var(--gray-100);
+  color: var(--dark-gray);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--gray-200);
+  }
+`;
+
+export const FlowCarouselSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const FlowCarouselIntro = styled.p`
+  margin: 0;
+  max-width: 860px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-700);
+`;
+
+export const FlowCarouselFrame = styled.div`
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+
+  @media (max-width: 899px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const FlowNavButton = styled.button`
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--gray-200);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--dark-gray);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--gray-100);
+  }
+
+  @media (max-width: 899px) {
+    display: none;
+  }
+`;
+
+export const FlowSlideCard = styled.article`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 980px;
+  justify-self: center;
+  padding: 20px;
+  border: 1px solid var(--gray-200);
+  border-radius: 24px;
+  background: var(--white);
+  box-shadow: 0 12px 40px rgba(17, 17, 17, 0.06);
+`;
+
+export const FlowImageButton = styled.button`
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: zoom-in;
+  text-align: left;
+`;
+
+export const FlowImageFrame = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--gray-200);
+  background: var(--gray-50);
+  padding: 16px;
+  min-height: 520px;
+
+  img {
+    display: block;
+    width: auto !important;
+    height: auto !important;
+    max-width: 100%;
+    max-height: min(68vh, 760px);
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  @media (max-width: 899px) {
+    min-height: 320px;
+    padding: 12px;
+  }
+`;
+
+export const FlowSlideMeta = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+export const FlowSlideLabel = styled.span`
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--gray-100);
+  color: var(--dark-gray);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+`;
+
+export const FlowSlideCopy = styled.p`
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--gray-700);
+`;
+
+export const FlowDots = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+`;
+
+export const FlowDotButton = styled.button<{ $active: boolean }>`
+  width: ${({ $active }) => ($active ? "34px" : "10px")};
+  height: 10px;
+  border: none;
+  border-radius: 999px;
+  background: ${({ $active }) =>
+    $active ? "var(--black)" : "var(--gray-300)"};
+  cursor: pointer;
+  transition: width 0.2s ease, background 0.2s ease;
+`;
+
+export const SessionDemoSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;
+
+export const SessionDemoIntro = styled.p`
+  margin: 0;
+  max-width: 900px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-700);
+`;
+
+export const SessionDemoControls = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+`;
+
+export const SessionDemoInstructionList = styled.ol`
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--gray-700);
+`;
+
+export const SessionDemoInstructionItem = styled.li`
+  font-size: 15px;
+  line-height: 1.6;
+`;
+
+export const SessionDemoLiveLinks = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+`;
+
+export const SessionDemoLiveLink = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--black);
+  border: 1px solid var(--black);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    background: var(--dark-gray);
+  }
+`;
+
+export const SessionDemoToggle = styled.button<{ $active: boolean }>`
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid ${({ $active }) =>
+    $active ? "var(--black)" : "var(--gray-200)"};
+  background: ${({ $active }) =>
+    $active ? "var(--black)" : "var(--white)"};
+  color: ${({ $active }) =>
+    $active ? "var(--white)" : "var(--dark-gray)"};
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+`;
+
+export const SessionDemoAction = styled.button`
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  color: var(--dark-gray);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background: var(--gray-100);
+  }
+`;
+
+export const SessionDemoCanvas = styled.div`
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid var(--gray-200);
+  background:
+    radial-gradient(circle at top right, rgba(33, 64, 154, 0.1), transparent 30%),
+    linear-gradient(180deg, #fbfbfc 0%, #f1f3f7 100%);
+  padding: 32px;
+
+  @media (max-width: 599px) {
+    padding: 20px;
+    min-height: 360px;
+  }
+`;
+
+export const SessionDemoSurface = styled.div`
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`;
+
+export const SessionDemoSurfaceEyebrow = styled.span`
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #21409a;
+`;
+
+export const SessionDemoSurfaceTitle = styled.h3`
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.2;
+  color: var(--black);
+`;
+
+export const SessionDemoSurfaceCopy = styled.p`
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-700);
+`;
+
+export const SessionDemoNote = styled.p`
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--gray-600);
+`;
+
+export const SessionDemoStatus = styled.p`
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #21409a;
+`;
+
+export const SessionDemoModalShell = styled.div`
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  width: min(492px, calc(100% - 40px));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 22px;
+  background: #ffffff;
+  color: #252525;
+  padding: 14px 18px 18px;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.18);
+  animation: ${slideInRight} 0.35s ease both;
+
+  @media (max-width: 599px) {
+    right: 20px;
+    left: 20px;
+    top: auto;
+    bottom: 20px;
+    width: auto;
+  }
+`;
+
+export const SessionDemoModalTimer = styled.div<{ $durationMs: number }>`
+  position: relative;
+  height: 4px;
+  width: 100%;
+  border-radius: 999px;
+  background: #e5e5e5;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #9d9d9d;
+    transform-origin: left center;
+    animation: ${drainBar} ${({ $durationMs }) => `${$durationMs}ms`} linear forwards;
+  }
+`;
+
+export const SessionDemoModalHeader = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+`;
+
+export const SessionDemoModalHeadline = styled.h4`
+  margin: 0;
+  max-width: 320px;
+  font-family: "DIN Pro", "DIN Alternate", "Arial Narrow", sans-serif;
+  font-size: 24px;
+  line-height: 1.12;
+  font-weight: 700;
+  color: #252525;
+  white-space: nowrap;
+`;
+
+export const SessionDemoModalClose = styled.div`
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #252525;
+  font-size: 22px;
+  line-height: 1;
+`;
+
+export const SessionDemoModalProduct = styled.div`
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 140px;
+  gap: 16px;
+  align-items: center;
+  border-radius: 14px;
+  background: #f1f1f1;
+  padding: 18px;
+
+  @media (max-width: 599px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+export const SessionDemoModalThumb = styled.div`
+  width: 88px;
+  height: 88px;
+  border-radius: 16px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04)),
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.12), transparent 40%),
+    #2b2b2b;
+
+  @media (max-width: 599px) {
+    width: 72px;
+    height: 72px;
+  }
+`;
+
+export const SessionDemoModalImage = styled(Image)`
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  justify-self: end;
+
+  @media (max-width: 599px) {
+    width: 120px;
+    justify-self: start;
+  }
+`;
+
+export const SessionDemoModalMeta = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+export const SessionDemoModalName = styled.h4`
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #252525;
+`;
+
+export const SessionDemoModalDetails = styled.p`
+  margin: 0;
+  font-size: 16px;
+  text-decoration: underline;
+  line-height: 1.5;
+  color: #252525;
+`;
+
+export const SessionDemoModalPrice = styled.p`
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #252525;
+`;
+
+export const SessionDemoModalCta = styled.button`
+  display: none;
+`;
+
 export const ResultsSection = styled.section`
   display: flex;
   flex-direction: column;
@@ -636,13 +1207,15 @@ export const ModalOverlay = styled.div`
 
 export const ModalContent = styled.div`
   position: relative;
-  width: min(960px, 90vw);
+  width: min(1200px, 92vw);
+  max-height: 90vh;
   background: var(--black);
   border-radius: 20px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  overflow: auto;
 `;
 
 export const ModalClose = styled.button`
@@ -660,4 +1233,10 @@ export const ModalVideo = styled.video`
   width: 100%;
   border-radius: 12px;
   background: #000000;
+`;
+
+export const ModalImage = styled(Image)`
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
 `;
