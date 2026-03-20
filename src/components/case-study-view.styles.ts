@@ -1085,6 +1085,10 @@ export const SessionDemoModalClose = styled.div`
   color: #252525;
   font-size: 22px;
   line-height: 1;
+
+  @media (max-width: 599px) {
+    display: none;
+  }
 `;
 
 export const SessionDemoModalProduct = styled.div`

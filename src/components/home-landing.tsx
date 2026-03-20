@@ -54,7 +54,7 @@ export function HomeLanding() {
       <LandingShell>
         <LandingHero>
           <LogoGlow aria-hidden="true">
-            <Image src="/icon" alt="" width={64} height={64} />
+            <Image src="/images/favicon.png" alt="" width={512} height={512} />
           </LogoGlow>
           <Eyebrow>Sara Keyser • Senior Software Engineer / UX Lead</Eyebrow>
           <LandingTitle>

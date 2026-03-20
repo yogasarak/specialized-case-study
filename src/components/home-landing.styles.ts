@@ -3,16 +3,16 @@ import styled, { keyframes } from "styled-components";
 
 const fadePulse = keyframes`
   0% {
-    opacity: 0.78;
-    transform: scale(0.98);
+    opacity: 0.64;
+    transform: scale(0.9);
   }
   50% {
     opacity: 1;
-    transform: scale(1.12);
+    transform: scale(1.18);
   }
   100% {
-    opacity: 0.78;
-    transform: scale(0.98);
+    opacity: 0.64;
+    transform: scale(0.9);
   }
 `;
 
@@ -81,8 +81,8 @@ export const LogoGlow = styled.div`
   height: 220px;
   border-radius: 999px;
   background:
-    radial-gradient(circle, rgba(0, 0, 0, 0.28), transparent 48%),
-    radial-gradient(circle, rgba(0, 0, 0, 0.12), transparent 72%);
+    radial-gradient(circle, rgba(0, 0, 0, 0.18), transparent 42%),
+    radial-gradient(circle, rgba(0, 0, 0, 0.06), transparent 72%);
   display: grid;
   place-items: center;
   pointer-events: none;
@@ -92,20 +92,20 @@ export const LogoGlow = styled.div`
     width: 92px;
     height: 92px;
     object-fit: contain;
-    animation: ${fadePulse} 4.2s ease-in-out infinite;
-    filter: contrast(1.26) saturate(1.18) drop-shadow(0 10px 18px rgba(0, 0, 0, 0.18));
+    animation: ${fadePulse} 3.1s ease-in-out infinite;
+    filter: contrast(1.08) saturate(1.04);
   }
 
   @media (max-width: 599px) {
-    width: 112px;
-    height: 112px;
-    top: 26px;
-    right: 10px;
+    width: 96px;
+    height: 96px;
+    top: 88px;
+    right: 18px;
     opacity: 0.92;
 
     img {
-      width: 46px;
-      height: 46px;
+      width: 40px;
+      height: 40px;
     }
   }
 `;
@@ -128,8 +128,8 @@ export const LandingTitle = styled.h1`
   letter-spacing: -0.04em;
 
   @media (max-width: 599px) {
-    max-width: 280px;
-    font-size: 2.05rem;
+    max-width: 250px;
+    font-size: 1.92rem;
     line-height: 1.02;
   }
 `;
