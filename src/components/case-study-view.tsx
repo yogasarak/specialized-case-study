@@ -14,7 +14,6 @@ import {
   HeroSection,
   HeroHeaderRow,
   AuthorLabel,
-  DesktopAuthorLabel,
   TagsWrapper,
   Tag,
   HeroTitle,
@@ -728,7 +727,6 @@ export function CaseStudyView({ content }: CaseStudyViewProps) {
                   </Tag>
                 ))}
               </TagsWrapper>
-              <DesktopAuthorLabel>{AUTHOR_NAME}</DesktopAuthorLabel>
             </HeroHeaderRow>
             <HeroTitle>{heroTitle}</HeroTitle>
             <HeroParagraph>{heroIntro}</HeroParagraph>
