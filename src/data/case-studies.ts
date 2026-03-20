@@ -490,77 +490,77 @@ const completeYourRideCaseStudy: CaseStudyContent = {
       "These individual frames make the flow easier to discuss in an interview. They show how the concept moved from high-level strategy into concrete UX decisions, viewport planning, and implementation-ready detail.",
     slides: [
       {
-        label: "Step 1",
+        label: "Expanded By Default",
         copy:
-          "A broad system view of the Complete Your Ride experience, showing how the feature was positioned within the overall shopping journey.",
+          "The add-ons accordion is expanded by default so riders immediately see compatible products without needing to hunt for the attach experience.",
         image: {
           src: "/images/complete-your-ride-flow-step-1.png",
           alt:
-            "Complete Your Ride flow step 1 showing the broader journey map and feature structure.",
+            "Complete Your Ride flow showing the add-ons accordion expanded by default on desktop and mobile.",
           width: 2500,
           height: 1980,
         },
         modalImage: {
           src: "/images/complete-your-ride-flow-step-1.png",
           alt:
-            "Expanded Complete Your Ride flow step 1 showing the broader journey map and feature structure.",
+            "Expanded Complete Your Ride flow showing the add-ons accordion expanded by default on desktop and mobile.",
           width: 2500,
           height: 1980,
         },
       },
       {
-        label: "Step 2",
+        label: "Open Modal",
         copy:
-          "A closer view into one of the feature states, clarifying how riders would encounter add-on groupings and supporting content.",
+          "Selecting View opens the add-on modal. On desktop it behaves like a carousel modal; on mobile it opens as a bottom sheet.",
         image: {
           src: "/images/complete-your-ride-flow-step-2.png",
           alt:
-            "Complete Your Ride flow step 2 showing a detailed feature state and content planning.",
+            "Complete Your Ride flow showing the product add-on modal open on desktop and mobile.",
           width: 1050,
           height: 1540,
         },
         modalImage: {
           src: "/images/complete-your-ride-flow-step-2.png",
           alt:
-            "Expanded Complete Your Ride flow step 2 showing a detailed feature state and content planning.",
+            "Expanded Complete Your Ride flow showing the product add-on modal open on desktop and mobile.",
           width: 1050,
           height: 1540,
         },
       },
       {
-        label: "Step 3",
+        label: "Add To Cart",
         copy:
-          "This frame captures mid-flow interaction detail, helping align behavior, content structure, and layout expectations before implementation.",
+          "After adding an item to cart, the modal closes and the rider returns to the PDP with the selected add-on reflected in the attach section.",
         image: {
           src: "/images/complete-your-ride-flow-step-3.png",
           alt:
-            "Complete Your Ride flow step 3 showing interaction detail and mid-flow layout decisions.",
+            "Complete Your Ride flow showing add to cart from the modal and return to the PDP.",
           width: 956,
           height: 942,
         },
         modalImage: {
           src: "/images/complete-your-ride-flow-step-3.png",
           alt:
-            "Expanded Complete Your Ride flow step 3 showing interaction detail and mid-flow layout decisions.",
+            "Expanded Complete Your Ride flow showing add to cart from the modal and return to the PDP.",
           width: 956,
           height: 942,
         },
       },
       {
-        label: "Step 4",
+        label: "Proceed To Cart",
         copy:
-          "The final frame shows later-stage flow planning with more explicit implementation and specification detail that engineering could work from.",
+          "The final state shows the rider proceeding to cart with both the bike and selected add-on carried through the checkout journey.",
         image: {
           src: "/images/complete-your-ride-flow-step-4.png",
           alt:
-            "Complete Your Ride flow step 4 showing later-stage design and implementation detail.",
+            "Complete Your Ride flow showing the rider proceeding to cart with the selected add-on.",
           width: 1050,
           height: 1490,
         },
         modalImage: {
           src: "/images/complete-your-ride-flow-step-4.png",
           alt:
-            "Expanded Complete Your Ride flow step 4 showing later-stage design and implementation detail.",
+            "Expanded Complete Your Ride flow showing the rider proceeding to cart with the selected add-on.",
           width: 1050,
           height: 1490,
         },
