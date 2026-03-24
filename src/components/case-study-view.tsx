@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { useCallback, useEffect, useState } from "react"
 import type { CaseStudyContent, ToggleOption } from "@/data/case-studies"
-import { DEFAULT_CASE_STUDY_SLUG, getCaseStudyPath } from "@/data/case-studies"
+import { getCaseStudyPath } from "@/data/case-studies"
 import {
   FloatingArrowRight,
   FloatingArrowLeft,
@@ -209,7 +209,7 @@ export function CaseStudyView({ content }: CaseStudyViewProps) {
   const activeImage = images[activeView]
   const nextHref = getCaseStudyPath(navigation.nextSlug)
   const previousHref = getCaseStudyPath(navigation.previousSlug)
-  const showPrevious = content.slug !== DEFAULT_CASE_STUDY_SLUG
+  const showPrevious = Boolean(navigation.previousSlug)
 
   const renderStatsGrid = () => (
     <StatsGrid role="list">
