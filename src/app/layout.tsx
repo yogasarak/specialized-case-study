@@ -8,6 +8,7 @@ const DESCRIPTION =
 const ICON_PATH = "/favicon.ico";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://specialized-case-study.vercel.app"),
   title: TITLE,
   description: DESCRIPTION,
   openGraph: {
