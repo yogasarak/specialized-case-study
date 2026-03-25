@@ -58,7 +58,7 @@ export function HomeLanding() {
           </LogoGlow>
           <Eyebrow>Sara Keyser • Senior Software Engineer / UX Lead</Eyebrow>
           <LandingTitle>
-            Case studies shaped through strategy, systems, and delivery.
+            case studies shaped through strategy, systems, and delivery.
           </LandingTitle>
           <LandingCopy>
             Case studies shaped through strategy, systems, and delivery across UX
@@ -68,9 +68,10 @@ export function HomeLanding() {
             Specialized platform highlights.
           </LandingCopy>
           <LandingActions>
-            <PrimaryLink href={getCaseStudyPath(featured.slug)}>
+            <PrimaryLink href="/sarakeyser">About Sara</PrimaryLink>
+            <SecondaryLink href={getCaseStudyPath(featured.slug)}>
               Start with Complete Your Ride
-            </PrimaryLink>
+            </SecondaryLink>
             <SecondaryLink href={getCaseStudyPath("specialized-experience-highlights")}>
               View Specialized Highlights
             </SecondaryLink>

@@ -625,8 +625,8 @@ const completeYourRideCaseStudy: CaseStudyContent = {
   navigation: {
     nextSlug: "continue-shopping",
     nextLabel: "Next: Continue Shopping Case Study",
-    previousSlug: "specialized-experience-highlights",
-    previousLabel: "Back: Specialized Experience Highlights",
+    previousSlug: "__home__",
+    previousLabel: "Back to Landing Page",
   },
 };
 
