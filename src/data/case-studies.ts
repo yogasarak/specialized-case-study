@@ -104,7 +104,7 @@ const landingCaseStudy: CaseStudyContent = {
     { value: "Next.js", label: "SSR + ISR Platform" },
     { value: "Global", label: "Commerce Experience" },
     { value: "35%", label: "Component Library Adoption" },
-    { value: "8% / 12%", label: "Conversion / Revenue Lift" },
+    { value: "24% / 12%", label: "Conversion / Revenue Lift" },
   ],
   challengeParagraph:
     "Specialized needed more than isolated UX wins. The platform had to support global commerce growth, clearer rider discovery, richer brand storytelling, and faster frontend execution across a broad product surface. The challenge was aligning experience quality, system consistency, and engineering scalability without treating them as separate workstreams.",
@@ -201,7 +201,7 @@ const landingCaseStudy: CaseStudyContent = {
   resultsParagraph:
     "Taken together, these workstreams improved both the rider experience and the internal product-development system. The value was not just new UI, but a better platform for shipping, scaling, and aligning product experience across the business.",
   resultsMetrics: [
-    "8% conversion uplift and 12% revenue impact from iterative platform and experience improvements",
+    "Representative discovery work delivered 24% conversion lift and 12% revenue impact on key commerce surfaces",
     "35% adoption of the modular React component library across product teams",
     "Improved platform flexibility through SSR, ISR, GraphQL, and cleaner frontend architecture",
     "More coherent rider journeys across commerce, navigation, and content surfaces",

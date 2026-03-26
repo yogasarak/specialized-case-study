@@ -141,8 +141,8 @@ export const resumeExperience: readonly ProfileExperience[] = [
     title: "Senior Software Engineer, UX Feature Lead",
     subtitle: "Global commerce platform and rider-first UX",
     bullets: [
-      "Led UX-driven feature development for specialized.com, a global e-commerce platform serving 18M+ users.",
-      "Owned wayfinding improvements that delivered 18% conversion uplift and 12% revenue impact through iterative A/B testing.",
+      "Led UX-driven feature development for specialized.com, a global e-commerce platform serving 20M+ users.",
+      "Owned wayfinding improvements that delivered 24% conversion uplift and 12% revenue impact through iterative A/B testing.",
       "Contributed to the re-platforming of the brand’s website to Next.js, improving performance and scalability through ISR and a GraphQL-based data layer.",
       "Strengthened alignment between the design system and the UI toolkit by expanding reusable components and improving collaboration between design and engineering.",
     ],
