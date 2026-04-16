@@ -166,7 +166,7 @@ export const resumeExperience: readonly ProfileExperience[] = [
     bullets: [
       "Built a data-rich analytics dashboard used by 20+ e-commerce brands to support reporting, data exploration, and OKR-driven insights.",
       "Developed reusable React and TypeScript components with D3.js to support interactive data visualization and analytics workflows.",
-      "Contributed to RESTful services using Koa.js and Kafka for data aggregation, with robust testing using Cypress and Cucumber.",
+      "Contributed to RESTful Node.js services with database access via Knex.js, supporting Kafka-based data aggregation and robust testing using Cypress and Cucumber.",
     ],
   },
   {
